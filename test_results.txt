@@ -1,0 +1,26 @@
+Person A facility module checks
+
+1. Description: Hash collision and duplicate-key insertion
+   Input: Load tests/hash-collision/data/facilities.txt, containing F000,
+   F038, and a duplicate f000, into the default 101-bucket table.
+   Expected: Both unique IDs are accepted; the duplicate is rejected and
+   the diagnostic reports capacity 101, entries 2, collisions 1.
+   Actual: Two records were accepted and the duplicate was rejected; the
+   diagnostic reported capacity 101, entries 2, collisions 1.
+   Result: PASS
+
+2. Description: Facility ID lookup normalization and validation
+   Input: Look up " f001<TAB> ", "f999", and "f12" after inserting F001.
+   Expected: Found F001; valid ID F999 not found; malformed F12 rejected.
+   Actual: The lookup returned those three distinct outcomes.
+   Result: PASS
+
+3. Description: Facility file validation and accepted-record order
+   Input: A Windows-line-ending stream with a comment, blank line, two valid
+   records, one duplicate ID, too few fields, an empty name, an invalid ID,
+   and an unknown building.
+   Expected: Two records accepted in input order; five rejected with line
+   numbers and reasons; category and building spelling preserved.
+   Actual: Two records accepted in input order; five rejected with line
+   numbers and reasons; accepted category and building spellings preserved.
+   Result: PASS

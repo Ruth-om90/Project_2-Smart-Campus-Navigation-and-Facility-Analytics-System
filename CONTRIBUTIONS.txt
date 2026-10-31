@@ -1,0 +1,31 @@
+CONTRIBUTIONS - Milestone 1
+Smart Campus Navigation and Facility Analytics System
+
+Member A: Ruth-om90 (GitHub: Ruth-om90)
+Owned modules: Facility records and custom hash table
+- Created the GitHub repository and set up the project structure
+  (include/, src/, data/, tests/, and documentation files).
+- Added the instructor data files to data/.
+- include/Facility.h, src/Facility.cpp: facility record, file loading and
+  validation (field count, ID format, known building, duplicate ID), warnings
+  with filename/line/reason, load summary, facility listing.
+- include/FacilityHashTable.h, src/FacilityHashTable.cpp: custom hash table
+  (separate chaining, polynomial hash, no std::unordered_map), case-insensitive
+  ID lookup, duplicate rejection, collision counting.
+- tests/FacilityTests.cpp and tests/hash-collision/data/: unit tests and the
+  hash-collision test data (F000 and F038 collide).
+- Wrote the hash table sections of design_document.txt and the Member A cases
+  in test_results.txt.
+- Verified loading against the instructor data: 10 facilities accepted,
+  0 rejected.
+
+Member B: [Name] (GitHub: [username])
+Owned modules: Campus graph and BFS
+- [To be filled in by Member B]
+
+Member C: [Name] (GitHub: [username])
+Owned modules: Department tree and traversals
+- [To be filled in by Member C]
+
+Shared work:
+- [To be filled in: README.txt, menu/main integration, file loader, final testing]

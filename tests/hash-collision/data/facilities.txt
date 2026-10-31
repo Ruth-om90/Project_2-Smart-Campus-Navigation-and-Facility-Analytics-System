@@ -1,0 +1,3 @@
+F000|Collision test facility one|Library|Test Facility
+F038|Collision test facility two|Library|Test Facility
+f000|Duplicate should not count|Library|Other

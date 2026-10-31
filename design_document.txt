@@ -1,0 +1,16 @@
+Person A - Facility records and ID hash table
+
+Facilities are stored in input-file order in FacilityHashTable. Each record's
+ID is trimmed and converted to uppercase before validation, hashing, storage,
+or comparison. A valid ID is F followed by exactly three digits.
+
+The table uses separate chaining. Its initial capacity is 101 buckets, and
+chains can grow as needed, so the table does not impose a fixed maximum number
+of facilities. The custom polynomial hash starts at zero and, for each
+normalized ID character, updates the value to (value * 31 + character) modulo
+the bucket count. It does not use a library hash function.
+
+For the loading diagnostic, a collision is counted once when an accepted,
+non-duplicate facility is inserted into a bucket that already contains at
+least one facility. A duplicate or invalid record does not increment the
+collision count. Facilities are also retained in insertion order for display.
