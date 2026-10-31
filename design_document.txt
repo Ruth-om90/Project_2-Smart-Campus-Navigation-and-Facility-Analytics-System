@@ -1,4 +1,4 @@
-Person A - Facility records and ID hash table
+Ruth Omoyi - Facility records and ID hash table
 
 Facilities are stored in input-file order in FacilityHashTable. Each record's
 ID is trimmed and converted to uppercase before validation, hashing, storage,

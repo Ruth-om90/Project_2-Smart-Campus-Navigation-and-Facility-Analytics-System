@@ -1,4 +1,4 @@
-Person A facility module checks
+Ruth Omoyi facility module checks
 
 1. Description: Hash collision and duplicate-key insertion
    Input: Load tests/hash-collision/data/facilities.txt, containing F000,
