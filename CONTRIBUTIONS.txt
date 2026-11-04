@@ -19,9 +19,11 @@ Modules: Facility records and custom hash table
 - Verified loading against data: 10 facilities accepted,
   0 rejected.
 
-Member B: [Name] (GitHub: [username])
+Member B: [Name] (GitHub: [janiyam])
 Owned modules: Campus graph and BFS
-- [To be filled in by Member B]
+- Responsible for include/CampusGraph.h and src/CampusGraph.cpp:
+campus graph structure, building connections, and graph operations.
+- Implementing an undirected graph using an adjacency list to store buildings and their neighboring connections
 
 Member C: [Name] (GitHub: [username])
 Owned modules: Department tree and traversals
