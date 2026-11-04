@@ -23,7 +23,17 @@ Member B: [Janiya Maduagwu] (GitHub: [username])
 Owned modules: Campus graph and BFS
 - Responsible for include/CampusGraph.h and src/CampusGraph.cpp:
 campus graph structure, building connections, and graph operations.
-- Implementing an undirected graph using an adjacency list to store buildings and their neighboring connections
+- Implementing an undirected graph using an adjacency list to store buildings and their neighboring connections.
+- Responsible for displaying the campus graph, total buildings,
+total connections, and the degree of each building.
+- Implementing Breadth-First Search (BFS) using a queue and visited
+tracking to identify reachable buildings and their distances.
+- Responsible for handling unknown buildings, isolated buildings,
+and disconnected sections of the campus graph.
+- Will test graph functionality using the provided campus data
+and additional test cases.
+- Will document the graph representation in design_document.txt
+and record graph and BFS tests in test_results.txt.
 
 Member C: [Name] (GitHub: [username])
 Owned modules: Department tree and traversals
