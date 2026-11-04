@@ -19,7 +19,7 @@ Modules: Facility records and custom hash table
 - Verified loading against data: 10 facilities accepted,
   0 rejected.
 
-Member B: [Name] (GitHub: [username])
+Member B: [Janiya Maduagwu] (GitHub: [username])
 Owned modules: Campus graph and BFS
 - [To be filled in by Member B]
 
