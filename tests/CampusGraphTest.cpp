@@ -7,29 +7,24 @@ using namespace std;
 int main() {
     CampusGraph campus;
 
-    campus.addBuilding("Library");
-    campus.addBuilding("Student Union");
-    campus.addBuilding("Science Building");
-    campus.addBuilding("Engineering Building");
-    campus.addBuilding("Business Building");
-    campus.addBuilding("Gym");
-    campus.addBuilding("Observatory");
+    if (!campus.loadBuildings("data/buildings.txt")) {
+        return 1;
+    }
 
-    campus.addConnection("Library", "Student Union");
-    campus.addConnection("Library", "Business Building");
-    campus.addConnection("Student Union", "Science Building");
-    campus.addConnection("Student Union", "Gym");
-    campus.addConnection("Science Building", "Engineering Building");
-    campus.addConnection("Business Building", "Gym");
+    if (!campus.loadConnections("data/connections.txt")) {
+        return 1;
+    }
 
     campus.displayGraph();
+
     cout << "\nTotal Buildings: "
-    << campus.getBuildingCount() << endl;
+         << campus.getBuildingCount() << endl;
 
     cout << "Total Connections: "
-    << campus.getConnectionCount() << endl;
+         << campus.getConnectionCount() << endl;
 
     campus.displayDegrees();
+
     cout << "\nTesting BFS from Library:\n";
     campus.BFS("Library");
 
@@ -41,3 +36,4 @@ int main() {
 
     return 0;
 }
+

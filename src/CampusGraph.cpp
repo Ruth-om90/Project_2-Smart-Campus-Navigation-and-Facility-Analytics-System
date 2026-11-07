@@ -1,5 +1,7 @@
 
 #include "../include/CampusGraph.h"
+#include <fstream>
+#include <sstream>
 #include <iostream>
 #include <queue>
 #include <stack>
@@ -193,4 +195,55 @@ void CampusGraph::displayDegrees() const {
         cout << buildings[i] << ": "
              << adjacencyList[i].size() << endl;
     }
+}
+
+bool CampusGraph::loadBuildings(const string& filename) {
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cout << "Could not open " << filename << endl;
+        return false;
+    }
+
+    string name;
+
+    while (getline(file, name)) {
+        if (name.empty() || name[0] == '#') {
+            continue;
+        }
+
+        addBuilding(name);
+    }
+
+    file.close();
+    return true;
+}
+
+bool CampusGraph::loadConnections(const string& filename) {
+    ifstream file(filename);
+
+    if (!file.is_open()) {
+        cout << "Could not open " << filename << endl;
+        return false;
+    }
+
+    string line;
+
+    while (getline(file, line)) {
+        if (line.empty() || line[0] == '#') {
+            continue;
+        }
+
+        stringstream ss(line);
+        string buildingA;
+        string buildingB;
+
+        getline(ss, buildingA, '|');
+        getline(ss, buildingB);
+
+        addConnection(buildingA, buildingB);
+    }
+
+    file.close();
+    return true;
 }

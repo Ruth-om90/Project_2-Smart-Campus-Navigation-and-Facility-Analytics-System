@@ -16,7 +16,8 @@ public:
     void addBuilding(const std::string& name);
     void addConnection(const std::string& buildingA,
                        const std::string& buildingB);
-
+    bool loadBuildings(const std::string& filename);
+    bool loadConnections(const std::string& filename);
     int findBuilding(const std::string& name) const;
 
     void displayGraph() const;
