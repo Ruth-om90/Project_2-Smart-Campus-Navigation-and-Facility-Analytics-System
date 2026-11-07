@@ -1,0 +1,115 @@
+
+Campus Graph:
+Library: Student Union, Business Building
+Student Union: Library, Science Building, Gym
+Science Building: Student Union, Engineering Building
+Engineering Building: Science Building
+Business Building: Library, Gym
+Gym: Student Union, Business Building
+Observatory: (no connections)
+
+Total Buildings: 7
+Total Connections: 6
+
+Building Degrees:
+Library: 2
+Student Union: 3
+Science Building: 2
+Engineering Building: 1
+Business Building: 2
+Gym: 2
+Observatory: 0
+
+Testing BFS from Library:
+
+BFS starting from Library:
+Library - Distance: 0
+Student Union - Distance: 1
+Business Building - Distance: 1
+Science Building - Distance: 2
+Gym - Distance: 2
+Engineering Building - Distance: 3
+Reachable buildings: 6 / 7
+
+Testing BFS from Observatory:
+
+BFS starting from Observatory:
+Observatory - Distance: 0
+Reachable buildings: 1 / 7
+
+Testing an unknown building:
+Building not found.
+
+Testing case-insensitive search:
+
+BFS starting from Library:
+Library - Distance: 0
+Student Union - Distance: 1
+Business Building - Distance: 1
+Science Building - Distance: 2
+Gym - Distance: 2
+Engineering Building - Distance: 3
+Reachable buildings: 6 / 7
+
+Testing whitespace in building names:
+
+BFS starting from Library:
+Library - Distance: 0
+Student Union - Distance: 1
+Business Building - Distance: 1
+Science Building - Distance: 2
+Gym - Distance: 2
+Engineering Building - Distance: 3
+Reachable buildings: 6 / 7
+
+Testing duplicate building:
+Total Buildings: 7
+
+Testing duplicate connection:
+Total Connections: 6
+
+Testing invalid connection:
+Total Connections: 6
+
+Testing shortest path:
+
+Shortest Path:
+Library
+Student Union
+Science Building
+Engineering Building
+Total connections: 3
+
+Testing same start and destination:
+
+Shortest Path:
+Library
+Total connections: 0
+
+Testing disconnected buildings:
+No path exists between these buildings.
+
+Testing unknown destination:
+Building not found.
+
+Testing case-insensitive shortest path:
+
+Shortest Path:
+Library
+Student Union
+Gym
+Total connections: 2
+
+Testing Connectivity Report:
+
+Campus Connectivity Report:
+Total Buildings: 7
+Total Connections: 6
+
+Highest Degree Buildings:
+Student Union (3)
+
+Isolated Buildings:
+Observatory
+
+Connected Components: 2

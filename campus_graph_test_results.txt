@@ -1,0 +1,73 @@
+
+Campus Graph Test Results
+Member B
+
+Test 1: Load Buildings
+Expected: 7 buildings
+Result: Passed
+
+Test 2: Load Connections
+Expected: 6 connections
+Result: Passed
+
+Test 3: BFS from Library
+Expected: 6 reachable buildings
+Result: Passed
+
+Test 4: BFS from Observatory
+Expected: 1 reachable building
+Result: Passed
+
+Test 5: Unknown Building
+Expected: Building not found
+Result: Passed
+
+Test 6: Case-Insensitive Search
+Expected: library matches Library
+Result: Passed
+
+Test 7: Whitespace Search
+Expected: "  Library  " matches Library
+Result: Passed
+
+Test 8: Duplicate Building
+Expected: Building count remains 7
+Result: Passed
+
+Test 9: Duplicate Connection
+Expected: Connection count remains 6
+Result: Passed
+
+Test 10: Invalid Connection
+Expected: Connection count remains 6
+Result: Passed
+
+Test 11: Shortest Path
+Expected: Library to Engineering Building uses 3 connections
+Result: Passed
+
+Test 12: Same Start and Destination
+Expected: 0 connections
+Result: Passed
+
+Test 13: Disconnected Buildings
+Expected: No path exists
+Result: Passed
+
+Test 14: Unknown Destination
+Expected: Building not found
+Result: Passed
+
+Test 15: Case-Insensitive Shortest Path
+Expected: library to GYM uses 2 connections
+Result: Passed
+
+Test 16: Connectivity Report
+Expected:
+7 buildings
+6 connections
+Student Union has the highest degree of 3
+Observatory is isolated
+2 connected components
+
+Result: Passed if verified in the final test run
