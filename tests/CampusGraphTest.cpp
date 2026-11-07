@@ -54,7 +54,23 @@ int main() {
     campus.addConnection("Library", "Unknown Building");
     cout << "Total Connections: "
          << campus.getConnectionCount() << endl;
+    
+    cout << "\nTesting shortest path:\n";
+    campus.shortestPath("Library", "Engineering Building");
 
+    cout << "\nTesting same start and destination:\n";
+    campus.shortestPath("Library", "Library");
+
+    cout << "\nTesting disconnected buildings:\n";
+    campus.shortestPath("Library", "Observatory");
+
+    cout << "\nTesting unknown destination:\n";
+    campus.shortestPath("Library", "Unknown Building");
+
+    cout << "\nTesting case-insensitive shortest path:\n";
+    campus.shortestPath("library", "GYM");
+    cout << "\nTesting Connectivity Report:\n";
+    campus.connectivityReport();
     return 0;
 }
 

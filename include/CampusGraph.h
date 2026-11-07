@@ -12,7 +12,9 @@ private:
 
 public:
     CampusGraph();
-
+    
+    void connectivityReport() const;
+    void shortestPath(const std::string& start, const std::string& destination) const;
     void addBuilding(const std::string& name);
     void addConnection(const std::string& buildingA,
                        const std::string& buildingB);
