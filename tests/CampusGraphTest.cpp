@@ -23,7 +23,13 @@ int main() {
     campus.addConnection("Business Building", "Gym");
 
     campus.displayGraph();
+    cout << "\nTotal Buildings: "
+    << campus.getBuildingCount() << endl;
 
+    cout << "Total Connections: "
+    << campus.getConnectionCount() << endl;
+
+    campus.displayDegrees();
     cout << "\nTesting BFS from Library:\n";
     campus.BFS("Library");
 

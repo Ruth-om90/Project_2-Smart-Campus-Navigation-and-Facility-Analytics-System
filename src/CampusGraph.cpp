@@ -171,3 +171,26 @@ void CampusGraph::DFS(const string& start) const {
         }
     }
 }
+
+int CampusGraph::getBuildingCount() const {
+    return buildings.size();
+}
+
+int CampusGraph::getConnectionCount() const {
+    int total = 0;
+
+    for (int i = 0; i < adjacencyList.size(); i++) {
+        total += adjacencyList[i].size();
+    }
+
+    return total / 2;
+}
+
+void CampusGraph::displayDegrees() const {
+    cout << "\nBuilding Degrees:\n";
+
+    for (int i = 0; i < buildings.size(); i++) {
+        cout << buildings[i] << ": "
+             << adjacencyList[i].size() << endl;
+    }
+}

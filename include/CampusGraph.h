@@ -20,7 +20,9 @@ public:
     int findBuilding(const std::string& name) const;
 
     void displayGraph() const;
-
+    int getBuildingCount() const;
+    int getConnectionCount() const;
+    void displayDegrees() const;
     void BFS(const std::string& start) const;
     void DFS(const std::string& start) const;
 };
