@@ -24,3 +24,35 @@ Ruth Omoyi facility module checks
    Actual: Two records accepted in input order; five rejected with line
    numbers and reasons; accepted category and building spellings preserved.
    Result: PASS
+-----------------------------------------------------------------------------------------------------------------
+Janiya Maduagwu campus graph module checks
+
+1. Description: Graph loading and input validation
+   Input: I loaded seven buildings and six connections from the data 
+   files. Test duplicate buildings, invalid connections and building
+   searches.
+   Expected: I expected seven buildings and six connections; I expected 
+   invalid entries to be rejected; I expected building searches to handle 
+   different capitalization.
+   Actual: In reality the graph loaded seven buildings and six connections. 
+   The graph correctly rejected entries and invalid building names.
+   Result: PASS
+
+2. Description: BFS traversal and shortest-path calculations
+   Input: I ran BFS from Library and Observatory. I found paths from 
+   Library, to Engineering Building and Gym.
+   Expected: I expected Library to reach six of seven buildings Observatory
+   to reach one of seven; I expected shortest paths to involve three and two 
+   connections.
+   Actual: BFS returned the expected counts and both shortest-path calculations
+   produced the correct distances.
+   Result: PASS
+
+3. Description: Graph statistics and connectivity report
+   Input: I generated graph statistics using the seven campus buildings and
+   six connections.
+   Expected: I expected Student Union to have the degree (three) Observatory
+   to be isolated and the graph to contain two connected components.
+   Actual: The report identified Student Union with degree three Observatory as
+   isolated and two connected components.
+   Result: PASS
