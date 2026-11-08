@@ -1,0 +1,42 @@
+Documentation for Campus Graph and BFS 
+B Member: Janiya M.
+
+Overview:
+This part of the project deals with modeling campus buildings and their relationships via an undirected, unweighted graph.
+
+Data structure:
+I have implemented an adjacency list for storing my graph. A vector is used to hold the buildings while another vector holds the adjacent buildings.
+
+File loading:
+The buildings names are loaded from data/buildings.txt and the connections are loaded from data/connections.txt. The buildings are then inserted into the graph and the connections stored bidirectionally.
+
+Graph functions:
+addBuilding() function adds buildings without any duplicates.
+addConnection() function makes connections between valid buildings.
+findBuilding() function finds buildings regardless of capitalization or whitespace around the name.
+displayGraph() function displays each building with its adjacent buildings.
+getBuildingCount() function gets the total number of buildings.
+getConnectionCount() function counts connections of the undirected graph only once.
+displayDegrees() function displays the connection degree of each building.
+
+BFS:
+BFS uses a queue to visit buildings based on their distances from the initial building. Additionally, it counts how many buildings can be reached.
+
+DFS:
+DFS uses a stack to search through connected buildings.
+
+Shortest Path:
+shortestPath() algorithm uses BFS and the parent vector to find the shortest path from one building to another. The shortest path and total number of connections are printed out.
+
+Connectivity Report:
+connectivityReport() function prints the total number of buildings, total connections, buildings with the highest degree of connectivity, isolated buildings, and the connected components.
+
+Time complexity:
+Looking up a building: O(V)
+BFS: O(V + E)
+DFS: O(V + E)
+Shortest path via BFS: O(V + E)
+Connectivity report: O(V + E)
+
+V is the number of buildings.
+E is the number of connections.
