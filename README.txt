@@ -110,9 +110,10 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 
 |-- tests/
 
-| |-- CampusGraphTest.cpp
+| |-- department_test.cpp
 
-|
+| |-- facilitytest.cpp
+
 
 |-- README.txt
 
