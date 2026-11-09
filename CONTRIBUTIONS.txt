@@ -40,4 +40,6 @@ Owned modules: Department tree and traversals
 - [To be filled in by Member C]
 
 Shared work:
-- [To be filled in: README.txt, menu/main integration, file loader, final testing]
+- Wrote README.txt.
+- Integrated the main program with the menu and project modules.
+- Performed final project testing.

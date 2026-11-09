@@ -80,6 +80,10 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 
 | |-- FacilityHashTable.h
 
+| |-- FileLoader.h
+
+| |-- Menu.h
+
 |
 
 |-- src/
@@ -92,11 +96,11 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 
 | |-- FacilityHashTable.cpp
 
-| |-- main.cpp
-
-| |-- menu.cpp
-
 | |-- FileLoader.cpp
+
+| |-- Main.cpp
+
+| |-- Menu.cpp
 
 |
 
@@ -106,16 +110,31 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 
 | |-- connections.txt
 
+| |-- departments.txt
+
+| |-- facilities.txt
+
 |
 
 |-- tests/
 
 | |-- department_test.cpp
 
-| |-- facilitytest.cpp
+| |-- CampusGraphTest.cpp
 
+| |-- FacilityTests.cpp
+
+| |-- MenuTests.cpp
+
+|
 
 |-- README.txt
+
+|-- CONTRIBUTIONS.txt
+
+|-- design_document.txt
+
+|-- test_results.txt
 
 (additional input files, test files and documentation may be present in
 the repository.)

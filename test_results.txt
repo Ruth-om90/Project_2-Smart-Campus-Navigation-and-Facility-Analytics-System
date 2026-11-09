@@ -25,6 +25,54 @@ Ruth Omoyi facility module checks
    numbers and reasons; accepted category and building spellings preserved.
    Result: PASS
 -----------------------------------------------------------------------------------------------------------------
+Ruth Omoyi menu module checks
+
+1. Description: Menu navigation and invalid-choice handling
+   Input: Run the menu test with scripted console input; enter a nonnumeric
+   main-menu choice, then visit and exit the campus, facility, and department
+   submenus.
+   Expected: Invalid choices display a validation message, each submenu opens,
+   and selecting 0 returns to its parent menu or exits the application menu.
+   Actual: The invalid choice was reported, all three submenus were exercised,
+   and navigation returned correctly between menus.
+   Result: PASS
+
+2. Description: Campus navigation menu actions
+   Input: Use a five-building graph with three connections to display the graph,
+   run BFS and DFS, find the Library-to-Engineering Building shortest path,
+   show the connectivity report, and display building degrees.
+   Expected: BFS reports four of five buildings reachable, the shortest path
+   uses three connections, the report shows two connected components, and
+   building degrees are displayed.
+   Actual: All requested graph operations produced the expected output.
+   Result: PASS
+
+3. Description: Facility menu listing, lookup, and statistics
+   Input: Use two loaded facilities to list records, look up f001, look up
+   missing ID F999, look up malformed ID F12, and display hash table statistics.
+   Expected: The facility list and normalized F001 record are shown; missing
+   and malformed IDs produce distinct messages; statistics report two facilities.
+   Actual: The list, case-insensitive lookup, missing-ID and invalid-format
+   messages, and facility count were correct.
+   Result: PASS
+
+4. Description: Department menu operations
+   Input: Use a three-department tree to display its hierarchy, search for
+   Physics and a missing department, add Applied Mathematics, run preorder,
+   postorder, and level-order traversals, and display tree statistics.
+   Expected: Existing and missing departments are distinguished, the new
+   department is added and searchable, traversals display the hierarchy, and
+   statistics report four departments.
+   Actual: Searches, insertion, hierarchy, traversals, and statistics matched
+   expectations; Applied Mathematics was searchable after insertion.
+   Result: PASS
+
+5. Description: Empty-input exit behavior
+   Input: Start the menu with end-of-input and provide no choice.
+   Expected: The menu exits cleanly without looping indefinitely.
+   Actual: The menu returned after displaying the main menu.
+   Result: PASS
+-----------------------------------------------------------------------------------------------------------------
 Janiya Maduagwu campus graph module checks
 
 1. Description: Graph loading and input validation

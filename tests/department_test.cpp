@@ -1,4 +1,3 @@
-
 /*
  * File: department_test.cpp
  * Purpose: Tests the DepartmentTree module.
