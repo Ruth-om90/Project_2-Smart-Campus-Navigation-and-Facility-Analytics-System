@@ -37,3 +37,22 @@ number of buildings and connections in the graph, the degree of each
 building and the number of connected components. A connectivity report 
 lists the buildings with the highest degree and the isolated buildings
 (i.e. buildings with no connections).
+
+--------------------------------------------------------------------------------------------------------------------------------
+Michaela Bosmans - Department tree and traversals
+
+DepartmentTree represents the department hierarchy as a general tree.
+Each department node stores its name, a pointer to its parent, and a list
+of child nodes. Department names are trimmed and compared without regard
+to capitalization for searching and duplicate prevention.
+
+Department records are loaded from a text file as department and parent
+fields separated by a vertical bar. The first accepted record must have
+NONE as its parent, and subsequent records must name an existing parent.
+The loader rejects malformed records, blank fields, duplicate names, and
+unknown parents, and reports accepted and rejected record counts.
+
+The tree displays the hierarchy with indentation and supports preorder,
+postorder, and level-order traversals. It also reports the department
+count, leaf count, and tree height. Nodes are deleted recursively when
+the tree is destroyed, and copying is disabled to protect node ownership.
