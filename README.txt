@@ -80,8 +80,6 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 
 | |-- FacilityHashTable.h
 
-| |-- FileLoader.h
-
 | |-- Menu.h
 
 |
@@ -95,8 +93,6 @@ Project_2-smart-campus-navigation-and-facility-analytics-system/
 | |-- Facility.cpp
 
 | |-- FacilityHashTable.cpp
-
-| |-- FileLoader.cpp
 
 | |-- Main.cpp
 
