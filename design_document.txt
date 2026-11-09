@@ -16,32 +16,24 @@ least one facility. A duplicate or invalid record does not increment the
 collision count. Facilities are also retained in insertion order for display.
 
 --------------------------------------------------------------------------------------------------------------------------------
-Janiya Maduagwu campus. Bfs module checks
+Janiya Maduagwu - Campus graph and navigation
 
-campus graph and BFS module checks
+CampusGraph is an undirected adjacency list that stores the buildings on
+the campus as well as their connections. Buildings are represented by 
+their names, while the neighboring buildings are represented as a list 
+of connected building indices. The building names are checked to prevent 
+duplicate entries and to allow searches regardless of capitalization and
+surrounding spaces.
 
-1. Description: Graph loading and input validation
-Input: Load seven buildings and six connections. Test duplicate
-buildings, invalid connections, and case-insensitive searches.
-Expected: Seven buildings and six connections; invalid entries
-rejected and valid building names recognized.
-Actual: The graph maintained seven buildings and six connections,
-and successfully handled duplicate and invalid inputs.
-Result: PASS
+CampusGraph uses Breadth-First Search (BFS) and Depth-First Search (DFS) 
+to explore campus connections. BFS is also used to find the shortest path 
+between two buildings by keeping track of the previous building in the 
+search. Since the graph is unweighted, the shortest path is defined by the
+fewest number of connections.
 
-2. Description: BFS traversal and shortest paths
-Input: Run BFS from Library and Observatory. Find paths from
-Library to Engineering Building and Gym.
-Expected: Library reaches 6/7 buildings, Observatory reaches 1/7,
-and shortest paths require three and two connections.
-Actual: BFS returned the correct reachable counts, and both
-shortest paths matched the expected distances.
-Result: PASS
-
-3. Description: Connectivity report and graph statistics
-Input: Generate graph statistics using the campus data files.
-Expected: Seven buildings, six connections, Student Union with
-the highest degree (3), Observatory isolated, and two components.
-Actual: The graph statistics confirmed seven buildings, six
-connections, and the expected building degrees.
-Result: PENDING CONNECTIVITY REPORT VERIFICATION
+Campus connections are loaded from text files with information on the
+buildings and their connections. The graph also calculates the total
+number of buildings and connections in the graph, the degree of each 
+building and the number of connected components. A connectivity report 
+lists the buildings with the highest degree and the isolated buildings
+(i.e. buildings with no connections).
