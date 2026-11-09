@@ -104,3 +104,37 @@ Janiya Maduagwu campus graph module checks
    Actual: The report identified Student Union with degree three Observatory as
    isolated and two connected components.
    Result: PASS
+-----------------------------------------------------------------------------------------------------------------
+Michaela Bosmans department tree module checks
+
+1. Description: Department file loading and hierarchy display
+   Input: Run tests/department_test.cpp to load data/departments.txt and
+   display the department hierarchy.
+   Expected: Seven departments load successfully with no rejected records;
+   the hierarchy shows University as the root and the appropriate child
+   departments.
+   Actual: Seven departments were accepted, none were rejected, and the
+   hierarchy was displayed with the expected parent-child relationships.
+   Result: PASS
+
+2. Description: Department tree traversals
+   Input: Display preorder, postorder, and level-order traversals of the
+   loaded department tree.
+   Expected: Each traversal visits all seven departments in its corresponding
+   tree order.
+   Actual: Preorder, postorder, and level-order traversals each displayed all
+   seven departments.
+   Result: PASS
+
+3. Description: Department statistics
+   Input: Display statistics for the loaded department tree.
+   Expected: Report seven departments, four leaf departments, and a tree
+   height of two.
+   Actual: The report showed seven departments, four leaves, and height two.
+   Result: PASS
+
+4. Description: Case-insensitive department search
+   Input: Search for "computer science" in the loaded tree.
+   Expected: Find and display the stored department name "Computer Science".
+   Actual: The search found and displayed "Computer Science".
+   Result: PASS

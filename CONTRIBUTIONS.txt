@@ -2,7 +2,7 @@ CONTRIBUTIONS - Milestone 1
 Smart Campus Navigation and Facility Analytics System
 
 Member A: Ruth Omoyi (GitHub: Ruth-om90)
-Modules: Facility records and custom hash table
+Owned modules: Facility records and custom hash table
 - Created the GitHub repository and set up the project structure
   (include/, src/, data/, tests/, and documentation files).
 - Added the data files to data/.
@@ -35,9 +35,19 @@ and additional test cases.
 - Will document the graph representation in design_document.txt
 and record graph and BFS tests in test_results.txt.
 
-Member C: [Name] (GitHub: [username])
+Member C: Michaela Bosmans (GitHub: Michaela1414)
 Owned modules: Department tree and traversals
-- [To be filled in by Member C]
+- include/DepartmentTree.h and src/DepartmentTree.cpp: implemented the
+  department hierarchy using parent-child nodes, including insertion,
+  duplicate-name prevention, and case-insensitive department search.
+- Implemented department data-file loading with validation for field count,
+  required fields, root records, and existing parent departments.
+- Implemented hierarchy display, preorder, postorder, and level-order
+  traversals, and statistics for department count, leaf count, and tree height.
+- Added recursive tree cleanup and disabled copying to protect node ownership.
+- Added tests/department_test.cpp to load department data and exercise
+  hierarchy display, traversals, statistics, and case-insensitive search.
+- Documented department tree test results in test_results.txt.
 
 Shared work:
 - Wrote README.txt.
