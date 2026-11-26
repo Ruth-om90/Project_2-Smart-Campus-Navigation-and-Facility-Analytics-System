@@ -64,65 +64,51 @@ void testAllMenuSections()
     const std::string output = runMenu(
         "invalid\n"
         "1\n"
-        "1\n"
         "2\n"
-        "library\n"
-        "3\n"
-        "Observatory\n"
-        "4\n"
-        "Library\n"
-        "Engineering Building\n"
-        "5\n"
-        "6\n"
-        "0\n"
-        "2\n"
-        "1\n"
-        "2\n"
-        "\n"
         "f001\n"
-        "2\n"
-        "F999\n"
-        "2\n"
-        "F12\n"
         "3\n"
-        "0\n"
-        "3\n"
-        "1\n"
-        "2\n"
-        "physics\n"
-        "2\n"
-        "Missing Department\n"
-        "3\n"
-        "Applied Mathematics\n"
-        "College of Science\n"
-        "1\n"
+        " main reading room \n"
         "4\n"
+        " library \n"
         "5\n"
         "6\n"
         "7\n"
-        "0\n"
+        "Library\n"
+        "8\n"
+        "Library\n"
+        "Engineering Building\n"
+        "9\n"
+        "Applied Mathematics\n"
+        "College of Science\n"
+        "10\n"
+        "physics\n"
+        "11\n"
+        "12\n"
+        "13\n"
+        "14\n"
+        "15\n"
+        "16\n"
+        "17\n"
         "0\n",
         graph,
         facilities,
         departments);
 
-    assert(contains(output, "Invalid choice. Enter a number from 0 to 3."));
+    assert(contains(output, "Invalid choice. Enter a number from 0 to 17."));
+    assert(contains(output, "1. View all facilities"));
+    assert(contains(output, "17. Graph connectivity report"));
+    assert(contains(output, "Found: Main Reading Room"));
+    assert(contains(output, "ID: F001 | Name: Main Reading Room"));
+    assert(contains(output, "Matches: 1"));
+    assert(contains(output, "Library: 1"));
     assert(contains(output, "Campus Graph:"));
     assert(contains(output, "Reachable buildings: 4 / 5"));
-    assert(contains(output, "DFS starting from Observatory:"));
-    assert(contains(output, "Total connections: 3"));
-    assert(contains(output, "Connected Components: 2"));
-    assert(contains(output, "Engineering Building: 1"));
-    assert(contains(output, "ID: F001 | Name: Main Reading Room"));
-    assert(contains(output, "Total facilities: 2"));
-    assert(contains(output, "No facility found with ID F999."));
-    assert(contains(output, "Invalid facility ID format."));
-    assert(contains(output, "Facilities: 2"));
-    assert(contains(output, "Department found: Physics (parent: College of Science)"));
-    assert(contains(output, "Department not found."));
-    assert(contains(output, "Department added: Applied Mathematics"));
+    assert(contains(output, "Department found: Physics | Parent: College of Science"));
+    assert(contains(output, "Department found: Physics"));
+    assert(contains(output, "Child count: 0 | Depth: 2"));
     assert(contains(output, "University\n    College of Science"));
     assert(contains(output, "Total departments: 4"));
+    assert(contains(output, "Matches: 1"));
     assert(departments.searchDepartment("applied mathematics") != 0);
     assert(graph.getBuildingCount() == 5);
     assert(graph.getConnectionCount() == 3);

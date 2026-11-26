@@ -278,3 +278,105 @@ void printFacilities(const FacilityHashTable& facilities, std::ostream& output)
     }
     output << "Total facilities: " << accepted.size() << '\n';
 }
+
+void searchFacilitiesByName(
+    const FacilityHashTable& facilities,
+    const std::string& name,
+    std::ostream& output)
+{
+    const std::vector<Facility>& accepted = facilities.facilitiesInInsertionOrder();
+    std::size_t matchCount = 0;
+
+    for (std::size_t i = 0; i < accepted.size(); ++i)
+    {
+        if (equalsIgnoreCase(accepted[i].name, name))
+        {
+            printFacility(accepted[i], output);
+            ++matchCount;
+        }
+    }
+
+    if (matchCount == 0)
+    {
+        output << "No facilities found with name '" << trimWhitespace(name)
+               << "'.\n";
+    }
+    output << "Matches: " << matchCount << '\n';
+}
+
+void searchFacilitiesByCategory(
+    const FacilityHashTable& facilities,
+    const std::string& category,
+    std::ostream& output)
+{
+    const std::vector<Facility>& accepted = facilities.facilitiesInInsertionOrder();
+    std::size_t matchCount = 0;
+
+    for (std::size_t i = 0; i < accepted.size(); ++i)
+    {
+        if (equalsIgnoreCase(accepted[i].category, category))
+        {
+            printFacility(accepted[i], output);
+            ++matchCount;
+        }
+    }
+
+    if (matchCount == 0)
+    {
+        output << "No facilities found with category '" << trimWhitespace(category)
+               << "'.\n";
+    }
+    output << "Matches: " << matchCount << '\n';
+}
+
+void printFacilityCategoryReport(
+    const FacilityHashTable& facilities,
+    std::ostream& output)
+{
+    const std::vector<Facility>& accepted = facilities.facilitiesInInsertionOrder();
+    if (accepted.empty())
+    {
+        output << "No facilities available.\nTotal: 0\n";
+        return;
+    }
+
+    std::vector<std::string> categories;
+    std::vector<std::size_t> counts;
+
+    for (std::size_t i = 0; i < accepted.size(); ++i)
+    {
+        bool found = false;
+        for (std::size_t categoryIndex = 0;
+             categoryIndex < categories.size();
+             ++categoryIndex)
+        {
+            if (equalsIgnoreCase(categories[categoryIndex], accepted[i].category))
+            {
+                ++counts[categoryIndex];
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            categories.push_back(accepted[i].category);
+            counts.push_back(1);
+        }
+    }
+
+    for (std::size_t i = 0; i < categories.size(); ++i)
+    {
+        const double percentage =
+            (accepted.size() == 0)
+            ? 0.0
+            : static_cast<double>(counts[i]) * 100.0 /
+                  static_cast<double>(accepted.size());
+        output.setf(std::ios::fixed, std::ios::floatfield);
+        output.precision(1);
+        output << categories[i] << ": " << counts[i]
+               << " (" << percentage << "%)\n";
+    }
+
+    output << "Total: " << accepted.size() << " (100.0%)\n";
+}

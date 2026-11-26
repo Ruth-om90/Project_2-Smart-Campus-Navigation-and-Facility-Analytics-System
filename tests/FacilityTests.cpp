@@ -119,4 +119,23 @@ int main()
     std::ostringstream display;
     printFacilities(loaded, display);
     assert(display.str().find("Total facilities: 2") != std::string::npos);
+
+    std::ostringstream nameSearch;
+    searchFacilitiesByName(loaded, " room #5 ", nameSearch);
+    assert(nameSearch.str().find("ID: F010") != std::string::npos);
+    assert(nameSearch.str().find("Matches: 1") != std::string::npos);
+
+    std::ostringstream categorySearch;
+    searchFacilitiesByCategory(loaded, " library ", categorySearch);
+    assert(categorySearch.str().find("ID: F010") != std::string::npos);
+    assert(categorySearch.str().find("Matches: 2") != std::string::npos);
+
+    std::ostringstream missingName;
+    searchFacilitiesByName(loaded, "Missing Facility", missingName);
+    assert(missingName.str().find("Matches: 0") != std::string::npos);
+
+    std::ostringstream categoryReport;
+    printFacilityCategoryReport(loaded, categoryReport);
+    assert(categoryReport.str().find("Library: 2") != std::string::npos);
+    assert(categoryReport.str().find("Total: 2") != std::string::npos);
 }

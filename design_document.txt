@@ -15,6 +15,19 @@ non-duplicate facility is inserted into a bucket that already contains at
 least one facility. A duplicate or invalid record does not increment the
 collision count. Facilities are also retained in insertion order for display.
 
+For Final facility searches, the accepted facility records are scanned in
+file order because names and categories do not require the ID hash table.
+Complete facility names and categories are trimmed at both ends and compared
+without regard to capitalization. Name searches return every exact match,
+category searches return every facility in the matching category, and both
+report a match count and a clear no-match message.
+
+The category report also scans accepted facilities in file order. Categories
+are grouped without regard to capitalization while preserving the spelling
+of the first accepted category. Each report line contains the category count
+and one-decimal percentage of all accepted facilities. The report prints zero
+facilities and a total of zero when no facilities are loaded.
+
 --------------------------------------------------------------------------------------------------------------------------------
 Janiya Maduagwu - Campus graph and navigation
 

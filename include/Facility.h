@@ -41,5 +41,16 @@ FacilityLoadSummary loadFacilities(
     std::ostream& output);
 
 void printFacilities(const FacilityHashTable& facilities, std::ostream& output);
+void searchFacilitiesByName(
+    const FacilityHashTable& facilities,
+    const std::string& name,
+    std::ostream& output);
+void searchFacilitiesByCategory(
+    const FacilityHashTable& facilities,
+    const std::string& category,
+    std::ostream& output);
+void printFacilityCategoryReport(
+    const FacilityHashTable& facilities,
+    std::ostream& output);
 
 #endif

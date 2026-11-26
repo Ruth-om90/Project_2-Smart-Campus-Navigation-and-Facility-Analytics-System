@@ -303,13 +303,27 @@ void displayMenu(
     while (true)
     {
         std::cout << "\nSmart Campus Navigation and Facility Analytics\n"
-                  << "1. Campus navigation\n"
-                  << "2. Facility management\n"
-                  << "3. Department organization\n"
+                  << "1. View all facilities\n"
+                  << "2. Search facility by ID\n"
+                  << "3. Search facility by name\n"
+                  << "4. Search facility by category\n"
+                  << "5. View campus graph\n"
+                  << "6. Display graph counts and degrees\n"
+                  << "7. Find reachable buildings (BFS)\n"
+                  << "8. Find shortest path (BFS)\n"
+                  << "9. Add department\n"
+                  << "10. Search department\n"
+                  << "11. Display department hierarchy\n"
+                  << "12. Preorder traversal\n"
+                  << "13. Postorder traversal\n"
+                  << "14. Level-order traversal\n"
+                  << "15. Department statistics\n"
+                  << "16. Facility category report\n"
+                  << "17. Graph connectivity report\n"
                   << "0. Exit\n";
 
         int choice = -1;
-        if (!readMenuChoice("Choice: ", 0, 3, choice))
+        if (!readMenuChoice("Choice: ", 0, 17, choice))
         {
             return;
         }
@@ -319,13 +333,148 @@ void displayMenu(
         case 0:
             return;
         case 1:
-            displayCampusMenu(graph);
+            printFacilities(facilities, std::cout);
             break;
         case 2:
-            displayFacilityMenu(facilities);
+        {
+            std::string id;
+            if (!readRequiredLine("Facility ID: ", id))
+            {
+                return;
+            }
+            const FacilityLookupResult result = facilities.lookup(id);
+            if (result.status == FacilityLookupStatus::Found && result.facility != 0)
+            {
+                std::cout << "Found: " << result.facility->name
+                          << " | " << result.facility->building
+                          << " | " << result.facility->category << '\n';
+            }
+            else if (result.status == FacilityLookupStatus::InvalidFormat)
+            {
+                std::cout << "Invalid facility ID format. Use F followed by exactly three digits.\n";
+            }
+            else
+            {
+                std::cout << "Not found: no facility with ID "
+                          << result.normalizedId << '\n';
+            }
             break;
+        }
         case 3:
-            displayDepartmentMenu(departments);
+        {
+            std::string name;
+            if (!readRequiredLine("Facility name: ", name))
+            {
+                return;
+            }
+            searchFacilitiesByName(facilities, name, std::cout);
+            break;
+        }
+        case 4:
+        {
+            std::string category;
+            if (!readRequiredLine("Facility category: ", category))
+            {
+                return;
+            }
+            searchFacilitiesByCategory(facilities, category, std::cout);
+            break;
+        }
+        case 5:
+            graph.displayGraph();
+            break;
+        case 6:
+            graph.displayDegrees();
+            break;
+        case 7:
+        {
+            std::string start;
+            if (!readRequiredLine("Starting building: ", start))
+            {
+                return;
+            }
+            graph.BFS(start);
+            break;
+        }
+        case 8:
+        {
+            std::string start;
+            std::string destination;
+            if (!readRequiredLine("Starting building: ", start) ||
+                !readRequiredLine("Destination building: ", destination))
+            {
+                return;
+            }
+            graph.shortestPath(start, destination);
+            break;
+        }
+        case 9:
+        {
+            std::string name;
+            if (!readRequiredLine("New department name: ", name))
+            {
+                return;
+            }
+            std::string parent;
+            if (!departments.isEmpty() &&
+                !readRequiredLine("Parent department name: ", parent))
+            {
+                return;
+            }
+            departments.addDepartment(name, parent);
+            break;
+        }
+        case 10:
+        {
+            std::string name;
+            if (!readRequiredLine("Department name: ", name))
+            {
+                return;
+            }
+            const DepartmentNode* department = departments.searchDepartment(name);
+            if (department == 0)
+            {
+                std::cout << "Department not found.\n";
+            }
+            else
+            {
+                int depth = 0;
+                const DepartmentNode* current = department;
+                while (current->parent != 0)
+                {
+                    ++depth;
+                    current = current->parent;
+                }
+                std::cout << "Department found: " << department->name
+                          << " | Parent: "
+                          << (department->parent == 0
+                              ? "None"
+                              : department->parent->name)
+                          << " | Child count: " << department->children.size()
+                          << " | Depth: " << depth << '\n';
+            }
+            break;
+        }
+        case 11:
+            departments.displayHierarchy();
+            break;
+        case 12:
+            departments.preorderTraversal();
+            break;
+        case 13:
+            departments.postorderTraversal();
+            break;
+        case 14:
+            departments.levelOrderTraversal();
+            break;
+        case 15:
+            departments.displayStatistics();
+            break;
+        case 16:
+            printFacilityCategoryReport(facilities, std::cout);
+            break;
+        case 17:
+            graph.connectivityReport();
             break;
         default:
             break;

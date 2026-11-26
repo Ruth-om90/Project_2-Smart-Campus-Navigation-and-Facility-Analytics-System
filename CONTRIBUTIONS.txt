@@ -1,4 +1,4 @@
-CONTRIBUTIONS - Milestone 1
+CONTRIBUTIONS - Final Submission
 Smart Campus Navigation and Facility Analytics System
 
 Member A: Ruth Omoyi (GitHub: Ruth-om90)
@@ -9,6 +9,10 @@ Owned modules: Facility records and custom hash table
 - include/Facility.h, src/Facility.cpp: facility record, file loading and
   validation (field count, ID format, known building, duplicate ID), warnings
   with filename/line/reason, load summary, facility listing.
+- Implemented Final facility name and category searches using case-insensitive,
+  trimmed complete-name matching, match counts, and no-match messages.
+- Implemented the Final facility category report with first-accepted category
+  spelling, counts, one-decimal percentages, and the empty-facility state.
 - include/FacilityHashTable.h, src/FacilityHashTable.cpp: custom hash table
   (separate chaining, polynomial hash, no std::unordered_map), case-insensitive
   ID lookup, duplicate rejection, collision counting.
@@ -16,6 +20,9 @@ Owned modules: Facility records and custom hash table
   hash-collision test data (F000 and F038 collide).
 - Wrote the hash table sections of design_document.txt and my cases
   in test_results.txt.
+- Updated src/Menu.cpp with the facility lookup, name search, category search,
+  and category-report menu operations and validation for the Final menu.
+- Updated facility and menu tests to cover Final facility search/report behavior.
 - Verified loading against data: 10 facilities accepted,
   0 rejected.
 
@@ -50,6 +57,9 @@ Owned modules: Department tree and traversals
 - Documented department tree test results in test_results.txt.
 
 Shared work:
+- Added include/FileLoader.h and src/FileLoader.cpp for shared data-directory
+  resolution, file paths, missing-file reporting, whitespace trimming,
+  blank/comment-line detection, and pipe-separated field splitting.
 - Wrote README.txt.
 - Integrated the main program with the menu and project modules.
 - Performed final project testing.
